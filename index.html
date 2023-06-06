@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="arkusz.css"> 
+    <script src="script.js"></script>
+    <title>Kurs CSS - Sojka Wojciech</title>
+</head>
+<body>
+    <div class="header">
+        KURS CSS
+    </div>
+    <div class="arrow">
+    <span class="arrow2" onclick="openTab()">⬇</span>
+    </div>
+        <div id="tab" class="tab">
+            <a id="close" class="close" onclick="closeTab()">&times;</a>
+            <button class="tablinks" onclick="openDescription(1)">align-items</button>
+            <button class="tablinks" onclick="openDescription(2)">background-color</button>
+            <button class="tablinks" onclick="openDescription(3)">background-image</button>
+            <button class="tablinks" onclick="openDescription(4)">background-size</button>
+            <button class="tablinks" onclick="openDescription(5)">background-position</button>
+            <button class="tablinks" onclick="openDescription(6)">background-attachment</button>
+            <button class="tablinks" onclick="openDescription(7)">background-repeat</button>
+            <button class="tablinks" onclick="openDescription(8)">border</button>
+            <button class="tablinks" onclick="openDescription(9)">border-radius</button>
+            <button class="tablinks" onclick="openDescription(10)">bottom/top left/right</button>
+            <button class="tablinks" onclick="openDescription(11)">border-collapse</button>
+            <button class="tablinks" onclick="openDescription(12)">border-spacing</button>
+            <button class="tablinks" onclick="openDescription(13)">box-shadow</button>
+            <button class="tablinks" onclick="openDescription(14)">color</button>
+            <button class="tablinks" onclick="openDescription(15)">display</button>
+            <button class="tablinks" onclick="openDescription(16)">float</button>
+            <button class="tablinks" onclick="openDescription(17)">font-size</button>
+            <button class="tablinks" onclick="openDescription(18)">font-family</button>
+            <button class="tablinks" onclick="openDescription(19)">font-weight</button>
+            <button class="tablinks" onclick="openDescription(20)">font-style</button>
+            <button class="tablinks" onclick="openDescription(21)">flex-direction</button>
+            <button class="tablinks" onclick="openDescription(22)">flex-wrap</button>
+            <button class="tablinks" onclick="openDescription(23)">height/widht</button>
+            <button class="tablinks" onclick="openDescription(24)">justify-content</button>
+            <button class="tablinks" onclick="openDescription(25)">list-style-type</button>
+            <button class="tablinks" onclick="openDescription(26)">line-height</button>
+            <button class="tablinks" onclick="openDescription(27)">letter-spacing</button>
+            <button class="tablinks" onclick="openDescription(28)">margin</button>
+            <button class="tablinks" onclick="openDescription(29)">opacity</button>
+            <button class="tablinks" onclick="openDescription(30)">padding</button>
+            <button class="tablinks" onclick="openDescription(31)">text-align</button>
+            <button class="tablinks" onclick="openDescription(32)">text-shadow</button>
+            <button class="tablinks" onclick="openDescription(33)">text-decoration</button>
+            <button class="tablinks" onclick="openDescription(34)">vertical-align</button>
+            <button class="tablinks" onclick="openDescription(35)">word-spacing</button>
+            <button class="tablinks" onclick="openDescription(36)">z-index</button>
+        </div>
+        <div class='description' id="description1">
+            <p class="main">ALIGN-ITEMS</p>
+            <p class="litlemain">opis</p>
+            Zapewnia wyrównanie dla elementów wewnątrz rodzica. By go użyć rodzic musi mieć display:flex;.
+            <p class="litlemain">spis wartości</p>
+            <table class="tabela">
+                <thead class="tablehead">
+                <tr>
+                    <th class="th3">nazwa</th>
+                    <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="th1">stretch</td>
+                    <td class="th2">Elementy są rozciągniete żeby dopasować sie do kontenera (wartość domyślna).</td>
+                </tr>
+                <tr>
+                    <td class="th1">center</td>
+                    <td class="th2">Elementy są pozycjonowane w centrum kontenera.</td>
+                </tr>
+                <tr>
+                    <td class="th1">flex-start</td>
+                    <td class="th2">Elementy są pozycjonowane na początku kontenera.</td>
+                </tr>
+                <tr>
+                    <td class="th1">flex-end</td>
+                    <td class="th2">Elementy są pozycjonownae na koncu kontenera.</td>
+                </tr>
+                <tr>
+                    <td class="th1">baseline</td>
+                    <td class="th2">Elementy są pozycjonowane względem dolnej linii kontenera.</td>
+                </tr>
+                <tr>
+                    <td class="th1">initial</td>
+                    <td class="th2">Ustawia domyślną wartość.</td>
+                </tr>
+                <tr>
+                    <td class="th1">inherit</td>
+                    <td class="th2">Dziedziczy wartość po rodzicu.</td>
+                </tr>
+            </tbody>
+            </table>
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz1">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="setWord('stretch')">stretch</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setWord('center')">center</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setWord('flex-start')">flex-start</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setWord('flex-end')">flex-end</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setWord('baseline')">baseline</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setWord('initial')">initial</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setWord('inherit')">inherit</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside2" id="pokazinside">słowo</div>
+            </div>
+        </div>
+        <div class='description' id="description2">
+            <p class="main">BACKGROUND-COLOR</p>
+            <p class="litlemain">opis</p>
+            Właściwość background-color ustawia kolor tła elementu.
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz2">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="setBackground('red')">red</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBackground('blue')">blue</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBackground('rgb(205, 92, 92)')">rgb(205, 92, 92)</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBackground('#ff9900')">#ff9900</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside" id="pokazinside2"></div>
+            </div>
+        </div>
+        <div class='description' id="description3">
+            <p class="main">BACKGROUND-IMAGE</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości background-image możemy określić, który obrazek powinien tworzyć tło <br> obrazkowe lub kolor interesującego nas elementu HTML.
+            W tej właściwości musimy określić <br> konkretny obrazek lub kolor i robimy to po przez wpisanie linku lub konkretnych kolorów <br> w nawias właściwości np. url(monkey.jpg) lub
+            radial-gradient(purple, yellow).
+            <p class="litlemain">spis wartości</p>
+            <table class="tabela">
+                <thead class="tablehead">
+                <tr>
+                    <th class="th3" style="width: 16vw; margin-left: 21vw;">nazwa</th>
+                    <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="th1" style=" margin-left: 21vw;">none</td>
+                    <td class="th2">Wartość none jest domyślną wartością właściwości background-image.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 21vw;">url()</td>
+                    <td class="th2">Funkcją url() określamy jaki obrazek ma być tłem.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 21vw;">linear-gradient()</td>
+                    <td class="th2">Za pomocą linear-gradient() możemy stworzyć gradient liniowy w tle.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 21vw;">repeating-linear-gradient()</td>
+                    <td class="th2">Tworzy się taki sam gradient jak w linear-gradient(), tylko sie powtarza.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 21vw;">radial-gradient()</td>
+                    <td class="th2">Tworzymy gradient promienisty w tle.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 21vw;">repeating-radial-gradient()</td>
+                    <td class="th2">Tworzy się taki sam gradient jak w radial-gradient(), tylko sie powtarza.</td>
+                </tr>
+            </tbody>
+            </table>
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz3">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="setImage('none')">none</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setImage('url(monkey.jpg)')">url(monkey.jpg)</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setGradient1('linear-gradient(purple, yellow)')">linear-gradient(purple, yellow)</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setGradient1('repeating-linear-gradient(purple, yellow, purple)')">repeating-linear-gradient(purple, yellow, purple)</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setGradient1('radial-gradient(purple, yellow)')">radial-gradient(purple, yellow)</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setGradient1('repeating-radial-gradient(purple, yellow, purple)')">repeating-radial-gradient(purple, yellow, purple)</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside3" id="pokazinside3"></div>
+            </div>
+        </div>
+        <div class='description' id="description4">
+            <p class="main">BACKGROUND-SIZE</p>
+            Właściwość background-size określa rozmiar obrazów tła.
+            <p class="litlemain">spis wartości</p>
+            <table class="tabela">
+                <thead class="tablehead">
+                <tr>
+                    <th class="th3" style=" margin-left: 19vw;">nazwa</th>
+                    <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">auto</td>
+                    <td class="th2">Domyślnie. Obraz tła jest wyświetlany w rozmiarze oryginalnym.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">długość</td>
+                    <td class="th2">Ustawia szerokość i wysokość obrazu tła w jednostkach np. px, mm, cm, in, pt, pc, em, ex. Pierwsza wartość określa szerokość, druga wartość ustawia wysokość. Jeśli podana jest tylko jedna wartość, druga jest ustawiana na auto.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">procenty</td>
+                    <td class="th2">Ustawia szerokość i wysokość obrazu tła w procentach elementu nadrzędnego. Pierwsza wartość określa szerokość, druga wartość ustawia wysokość. Jeśli podana jest tylko jedna wartość, druga jest ustawiana na auto.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">cover</td>
+                    <td class="th2">Zmienia rozmiar obrazu tła, aby zakryć cały kontener, nawet jeśli ma rozciągnąć obraz bądź uciąć jedną z krawędzi.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">contain</td>
+                    <td class="th2">Zmienia rozmiar obrazu tła tak, aby obraz był w pełni widoczny.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">initial</td>
+                    <td class="th2">Ustawia tę właściwość na jej wartość domyślną.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">inherit</td>
+                    <td class="th2">ziedziczy tę właściwość z elementu nadrzędnego.</td>
+                </tr>
+            </tbody>
+            </table>
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz4">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="setBack('auto')">auto</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBack('50px, 50px')">50px, 50px</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBack('70%, 70%')">70%, 70%</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBack('cover')">cover</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBack('contain')">contain</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBack('initial')">initial</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBack('initial')">inherit</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside4" id="pokazinside4"></div>
+            </div>
+        </div>
+        <div class='description' id="description5">
+            <p class="main">BACKGROUND-POSITION</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości background-position możemy określić względem krawędzi obszaru pozycjonowania<br>
+            pozycję początkową obrazka tworzącego tło obrazkowe interesującego nas elementu HTML.
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz5">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="setImage2('right')">right</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setImage2('right bottom')">right bottom</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setImage2('30px')">30px</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setImage2('30px -120px')">30px -120px</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setImage2('25% top')">-25% top</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside5" id="pokazinside5"></div>
+            </div>
+        </div>
+        <div class='description' id="description6">
+            <p class="main">BACKGROUND-ATTACHMENT</p>
+            <p class="litlemain">opis</p>
+            Styl definiuje sposób przewijania tła graficznego.
+            <p class="litlemain">spis wartości</p>
+            <table class="tabela">
+                <thead class="tablehead">
+                <tr>
+                    <th class="th3" style=" margin-left: 30vw;">nazwa</th>
+                    <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="th1" style=" margin-left: 30vw;">scroll</td>
+                    <td class="th2">Domyślnie, tło przewija się razem ze stroną.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 30vw;">fixed</td>
+                    <td class="th2">Tło "stoi w miejscu" gdy zawartość strony jest przewijana.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 30vw;">inherit</td>
+                    <td class="th2">Przyjmuje wartość po rodzicu.</td>
+                </tr>
+            </tbody>
+            </table>
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz6">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="setAttach('scroll')">scroll</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setAttach('fixed')">fixed</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setAttach('inherit')">inherit</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside6" id="pokazinside6"> 
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                    słowo
+                </div>
+            </div>
+        </div>
+        <div class='description' id="description7">
+            <p class="main">BACKGROUND-REPEAT</p>
+            <p class="litlemain">opis</p>
+            Właściwość background-repeat określa, czy obraz tła będzie powtarzany. Domyślnie obraz tła jest powtarzany zarówno w pionie, jak i w poziomie.
+            <p class="litlemain">spis wartości</p>
+        <table class="tabela">
+            <thead class="tablehead">
+            <tr>
+                <th class="th3" style=" margin-left: 18vw;">nazwa</th>
+                 <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">repeat</td>
+                <td class="th2">Obraz tła jest powtarzany zarówno w pionie, jak i w poziomie. Ostatni obraz zostanie ucięty, jeśli cały się nie zmieści. Jest to ustawienie domyślne.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">repeat-x</td>
+                <td class="th2">Obraz tła jest powtarzany tylko w poziomie.</td>
+            </tr>
+            <tr></tr>
+                <td class="th1" style=" margin-left: 18vw;">repeat-y</td>
+                <td class="th2">Obraz tła jest powtarzany tylko w pionie.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">no-repeat</td>
+                <td class="th2">Obraz tła nie jest powtarzany. Obraz zostanie wyświetlony tylko raz.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">space</td>
+                <td class="th2">Obraz tła jest powtarzany tak często, jak to możliwe, bez przycinania. Pierwszy i ostatni obraz są przypięte do obu stron elementu, a spacje są rozmieszczone równomiernie między obrazami.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">round</td>
+                <td class="th2">Obraz tła jest powtarzany i zmniejszany lub rozciągany, aby wypełnić przestrzeń (bez przerw).</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">initial</td>
+                <td class="th2">Ustawia tę właściwość na jej wartość domyślną.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">inherit</td>
+                <td class="th2">Dziedziczy tę właściwość z elementu nadrzędnego.</td>
+            </tr>
+        </tbody>
+        </table>
+        <p class="litlemain">pokaz</p>
+        <div class="pokaz7">
+            <table style="margin-left:20px;">
+                <tr>
+                    <td><a onclick="setRepeat('repeat')">repeat</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="setRepeat('repeat-x')">repeat-x</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="setRepeat('repeat-y')">repeat-y</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="setRepeat('no-repeat')">no-repeat</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="setRepeat('space')">space</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="setRepeat('round')">round</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="setRepeat('initial')">initial</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="setRepeat('inherit')">inherit</a></td>
+                </tr>
+            </table>
+            <div class="pokazinside7" id="pokazinside7"> 
+            </div>
+        </div>
+        </div>
+        <div class='description' id="description8">
+            <p class="main">BORDER</p>
+            <p class="litlemain">opis</p>
+            Styl border definiuje właściwości ramki.
+            <p class="litlemain">spis wartości</p>
+            <table class="tabela">
+                <thead class="tablehead">
+                <tr>
+                    <th class="th3" style=" margin-left: 25vw; width: 7.5vw;">nazwa</th>
+                    <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="th1" style=" margin-left: 25vw;">border-width</td>
+                    <td class="th2">Opisuje szerokość ramki.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 25vw;">border-style</td>
+                    <td class="th2">Opisuje styl ramki(dotted, solid, dashed, double, double, ridge, inset, outset).</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 25vw;">border-color</td>
+                    <td class="th2">Opisuje kolor ramki.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 25vw;">inherit</td>
+                    <td class="th2">Przyjmuje wartość po rodzicu.</td>
+                </tr>
+            </tbody>
+            </table>
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz8">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="setBorder('solid black 2px')">solid black 2px</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBorder('dotted orange 5px')">dotted orange 5px</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBorder('inherit')">inherit</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside8" id="pokazinside8"></div>
+            </div>
+        </div>
+        <div class='description' id="description9">
+            <p class="main">BORDER</p>
+            <p class="litlemain">opis</p>
+            Border-radius definiuje promień zaokrąglenia wszystkich narożników obramowania.
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz9">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="setBorder2('50%')">50%</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBorder2('20px')">20px</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="setBorder2('50px')">50px</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside9" id="pokazinside9"></div>
+            </div>
+        </div>
+        <div class='description' id="description10">
+            <p class="main">BOTTOM/TOP LEFT/RIGHT</p>
+            <p class="litlemain">opis</p>
+            Te style definiują odległość od krawędzi elementu zewnętrznego.
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz10">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="moveBottom('20px')">20px botom</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="moveTop('30px')">30px top</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="moveRight('40px')">40px right</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="moveLeft('50px')">50px left</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside10" id="pokazinside10">
+                    <div class="kloc" id="kloc"></div>
+                </div>
+            </div>
+        </div>
+        <div class='description' id="description11">
+            <p class="main">BORDER-COLLAPSE</p>
+            <p class="litlemain">opis</p>
+            Styl border-collapse definiuje, czy obramowania tabeli powinny zwinąć się w pojedyncze obramowanie, czy też należy je rozdzielić.
+            <p class="litlemain">spis wartości</p>
+        <table class="tabela">
+            <thead class="tablehead">
+            <tr>
+                <th class="th3" style=" margin-left: 18vw;">nazwa</th>
+                 <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">separate</td>
+                <td class="th2">Obraz tła jest powtarzany zarówno w pionie, jak i w poziomie. Ostatni obraz zostanie ucięty, jeśli cały się nie zmieści. Jest to ustawienie domyślne.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">collapse</td>
+                <td class="th2">Obramowania są zwinięte w pojedynczą ramkę, jeśli jest to możliwe (właściwości border-spacing i empty-cells nie mają wpływu).</td>
+            </tr>
+            <tr></tr>
+                <td class="th1" style=" margin-left: 18vw;">initial</td>
+                <td class="th2">Ustawia tę właściwość na jej wartość domyślną.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">inherit</td>
+                <td class="th2">Dziedziczy tę właściwość z elementu nadrzędnego.</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        <div class='description' id="description12">
+            <p class="main">BORDER-SPACING</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości border-spacing możemy określić rozmiar odstępu pomiędzy kolumnami oraz wierszami interesującej nas tabeli HTML.
+            <p class="litlemain">spis wartości</p>
+        <table class="tabela">
+            <thead class="tablehead">
+            <tr>
+                <th class="th3" style=" margin-left: 18vw;">nazwa</th>
+                 <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">długość</td>
+                <td class="th2">Opisuje dystans pomiedzy obramowaniami objektów w px, cm itp. Wartości ujemne nie są dozwolone.</td>
+            </tr>
+            <tr></tr>
+                <td class="th1" style=" margin-left: 18vw;">initial</td>
+                <td class="th2">Ustawia tę właściwość na jej wartość domyślną.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 18vw;">inherit</td>
+                <td class="th2">Dziedziczy tę właściwość z elementu nadrzędnego.</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        <div class='description' id="description13">
+            <p class="main">BOX-SHADOW</p>
+            <p class="litlemain">opis</p>
+            Określa cieniowanie elementu.
+            <p class="litlemain">pokaz</p>
+            <div class="pokaz11">
+                <table style="margin-left:20px;">
+                    <tr>
+                        <td><a onclick="addShadow('5px 5px black')">5px 5px black</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="addShadow('5px 5px 8px black')">5px 5px 10px black</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="addShadow('5px 5px red, 10px 10px green, 15px 15px blue')">5px 5px red, 10px 10px<br> green, 15px 15px blue</a></td>
+                    </tr>
+                    <tr>
+                        <td><a onclick="addShadow('5px 5px 8px red, 10px 10px 8px green, 15px 15px 8px blue')">5px 5px 8px red, 10px 10px<br> 8px green, 15px 15px 8px blue</a></td>
+                    </tr>
+                </table>
+                <div class="pokazinside11" id="pokazinside11">
+                </div>
+            </div>
+        </div>
+        <div class='description' id="description14">
+            <p class="main">COLOR</p>
+            <p class="litlemain">opis</p>
+        Za pomocą właściwości color przede wszystkim możemy określić kolor tekstu interesującego nas elementu HTML.
+        <p class="litlemain">pokaz</p>
+        <div class="pokaz11">
+            <table style="margin-left:20px;">
+                <tr>
+                    <td><a onclick="addColor('blue')">blue</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="addColor('red')">red</a></td>
+                </tr>
+                <tr>
+                    <td><a onclick="addColor('green')">green</a></td>
+                </tr>
+            </table>
+            <div class="pokazinside12" id="pokazinside12">słowo
+            </div>
+        </div>
+        </div>
+        <div class='description' id="description15">
+            <p class="main">DISPLAY</p>
+            <p class="litlemain">opis</p>
+            Definiuje sposób wyświetlania elementu.
+            <p class="litlemain">spis wartości</p>
+            <table class="tabela">
+                <thead class="tablehead">
+                <tr>
+                    <th class="th3" style=" margin-left: 19vw;">nazwa</th>
+                     <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">none</td>
+                    <td class="th2">Element nie jest wyświetlany.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 19vw;">inline-block</td>
+                    <td class="th2">Elementy posiadające ten styl zachowuja sie jak blok i ustawiają sie w poziomie jeden obok drugiego.</td>
+                </tr>
+                <tr></tr>
+                    <td class="th1" style=" margin-left: 19vw;">flex</td>
+                    <td class="th2">Elementy posiadające ten styl zachowuja sie jak blok tylko, że mają duże mozliwości w układaniu elementów w sobie takie jak justify-content, align-items itp</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class='description' id="description16">
+            <p class="main">FLOAT</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości float możemy sprawić, że interesujący nas element HTML<br> stanie się pływającym w obszarze zawartości swojego elementu rodzica elementem HTML.
+            <p class="litlemain">spis wartości</p>
+        <table class="tabela">
+            <thead class="tablehead">
+            <tr>
+                <th class="th3" style=" margin-left: 29vw;">nazwa</th>
+                 <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="th1" style=" margin-left: 29vw;">none</td>
+                <td class="th2">Bez zmian.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 29vw;">left</td>
+                <td class="th2">Element znajduje sie po lewej stronie elementu nadrzędnego.</td>
+            </tr>
+            <tr></tr>
+                <td class="th1" style=" margin-left: 29vw;">right</td>
+                <td class="th2">Element znajduje sie po prawej stronie elementu nadrzędnego.</td>
+            </tr>
+            <tr>
+                <td class="th1" style=" margin-left: 29vw;">inherit</td>
+                <td class="th2">Dziedziczy tę właściwość z elementu nadrzędnego.</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        <div class='description' id="description17">
+            <p class="main">FONT-SIZE</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości font-size możemy określić rozmiar<br>
+            czcionki tekstu interesującego nas elementu HTML.
+            <p class="litlemain">spis wartości</p>
+            <table class="tabela">
+                <thead class="tablehead">
+                <tr>
+                    <th class="th3" style=" margin-left: 30vw;">nazwa</th>
+                     <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="th1" style=" margin-left: 30vw;">length</td>
+                    <td class="th2">Ustawia taką wielkość czcionki, jaką podasz w np. px.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 30vw;">medium</td>
+                    <td class="th2">Ustawia średni rozmiar czcionki, jest to domyślna wartość.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 30vw;">small</td>
+                    <td class="th2">Ustawia mały rozmiar czcionki.</td>
+                </tr>
+                <tr></tr>
+                    <td class="th1" style=" margin-left: 30vw;">large</td>
+                    <td class="th2">Ustawia duży rozmiar czcionki.</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class='description' id="description18">
+            <p class="main">FONT-FAMILY</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości font-family możemy określić rodzaj czcionki tekstu interesującego nas elementu HTML po przez wpisanie nazwy czciąki.
+        </div>
+        <div class='description' id="description19">
+            <p class="main">FONT-WEIGHT</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości font-weight możemy określić grubość czcionki tekstu interesującego nas elementu HTML.
+        </div>
+        <div class='description' id="description20">
+            <p class="main">FONT-STYLE</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości font-style możemy określić dodatkowy styl czcionki tekstu interesującego nas elementu HTML.
+            <p class="litlemain">spis wartości</p>
+            <table class="tabela">
+                <thead class="tablehead">
+                <tr>
+                    <th class="th3" style=" margin-left: 30vw;">nazwa</th>
+                     <th style='border-bottom:solid black 2px; text-align: left;'> wyjaśnienie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr></tr>
+                    <td class="th1" style=" margin-left: 30vw;">length</td>
+                    <td class="th2">Ustawia taką wielkość czcionki, jaką podasz w np. px.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 30vw;">medium</td>
+                    <td class="th2">Ustawia średni rozmiar czcionki, jest to domyślna wartość.</td>
+                </tr>
+                <tr>
+                    <td class="th1" style=" margin-left: 30vw;">small</td>
+                    <td class="th2">Ustawia mały rozmiar czcionki.</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class='description' id="description21">
+            <p class="main">FLEX-DIRECTION</p>
+            <p class="litlemain">opis</p>
+            Właściwość flex-direction definiuje kierunek w jakim mają ustawiać się flex items.
+        </div>
+        <div class='description' id="description22">
+            <p class="main">FLEX-WRAP</p>
+            <p class="litlemain">opis</p>
+            Właściwość flex-wrap steruje zawijaniem elementów, jeśli w kontenerze zabraknie miejsca.
+        </div>
+        <div class='description' id="description23">
+            <p class="main">HEIGHT/WIDHT</p>
+            <p class="litlemain">opis</p>
+            Właściwość flex-wrap steruje zawijaniem elementów, jeśli w kontenerze zabraknie miejsca.
+        </div>
+        <div class='description' id="description24">
+            <p class="main">JUSTIFY-CONTENT</p>
+            <p class="litlemain">opis</p>
+            Określa wyrównanie zawartości elementów wewnątrz rodzica z wyświetlaniem flex, jeśli nie cała zawartość jest zajęta.
+        </div>
+        <div class='description' id="description25">
+            <p class="main">LIST-STYLE-TYPE</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości list-style-type możemy określić typ wyróżnika interesującej nas listy HTML.
+        </div>
+        <div class='description' id="description26">
+            <p class="main">LINE-HEIGHT</p>
+            <p class="litlemain">opis</p>
+            Nadaje wysokość linii w tekstach.
+        </div>
+        <div class='description' id="description27">
+            <p class="main">LETTER-CPACING</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości letter-spacing możemy określić rozmiar dodatkowego odstępu pomiędzy znakami tworzącymi tekst interesującego nas elementu HTML.
+        </div>
+        <div class='description' id="description28">
+            <p class="main">MARGIN</p>
+            <p class="litlemain">opis</p>
+            Styl definiuje wielkość marginesu zewnętrznego dla elementu.
+        </div>
+        <div class='description' id="description29">
+            <p class="main">OPACITY</p>
+            <p class="litlemain">opis</p>
+            Służy do ustalania stopnia nieprzezroczystości obiektu.
+        </div>
+        <div class='description' id="description30">
+            <p class="main">PADDING</p>
+            <p class="litlemain">opis</p>
+            Tworzy dodatkową przestrzeń w elemencie umiejscowioną między jego zawartością a krawędzią obramowania.
+        </div>
+        <div class='description' id="description31">
+            <p class="main">TEXT-ALIGN</p>
+            <p class="litlemain">opis</p>
+            Określa horyzontalne wyrównanie tekstu.
+        </div>
+        <div class='description' id="description32">
+            <p class="main">TEXT-SHADOW</p>
+            <p class="litlemain">opis</p>
+            Określa efekt cienia dla wybranego tekstu.
+        </div>
+        <div class='description' id="description33">
+            <p class="main">TEXT-DECORATION</p>
+            <p class="litlemain">opis</p>
+            Ustawia rodzaj dekoracji tekstu do użycia.
+        </div>
+        <div class='description' id="description34">
+            <p class="main">VERTICAL-ALIGN</p>
+            <p class="litlemain">opis</p>
+            Za pomocą właściwości vertical-align możemy określić sposób wyrównania występującego na poziomie tekstu interesującego nas elementu HTML.
+        </div>
+        <div class='description' id="description35">
+            <p class="main">WORD-SPACING</p>
+            <p class="litlemain">opis</p>
+            Określia rozmiar dodatkowego odstępu pomiędzy wyrazami tworzącymi tekst interesującego nas elementu HTML.
+        </div>
+        <div class='description' id="description36">
+            <p class="main">Z-INDEX</p>
+            <p class="litlemain">opis</p>
+            Określa uporządkowanie elementów na stosie.
+        </div>
+</body>
+</html>
