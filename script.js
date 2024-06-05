@@ -55,41 +55,41 @@ document.addEventListener("keydown", function (e){
 function movement() {
     pacman.style.transform = "rotate(0deg)";
     pacman.style.backgroundImage = "";
-    if (d === "ArrowUp" && i>10) {
+    if (d === "ArrowUp" || d ==="w" && i>10) {
         i-=10;
         drawPacman();
         pacman.style.transform = "rotate(270deg)";
-    }else if (d === "ArrowUp" && i<=10) {
+    }else if (d === "ArrowUp" || d ==="w" && i<=10) {
         i+=90;
         drawPacman();
         pacman.style.transform = "rotate(270deg)";
     }
 
-    if (d === "ArrowDown" && i<90) {
+    if (d === "ArrowDown" || d ==="s" && i<90) {
         i+=10;
         drawPacman();
         pacman.style.transform = "rotate(90deg)";
-    }else if (d === "ArrowDown" && i>=90) {
+    }else if (d === "ArrowDown" || d ==="s" && i>=90) {
         i-=90;
         drawPacman();
         pacman.style.transform = "rotate(90deg)";
     }
 
-    if (d === "ArrowLeft" && i%10!==1) {
+    if (d === "ArrowLeft" || d ==="a" && i%10!==1) {
         i--;
         drawPacman();
         pacman.style.transform = "rotate(180deg)";
-    }else if (d === "ArrowLeft" && i%10===1) {
+    }else if (d === "ArrowLeft" || d ==="a" && i%10===1) {
         i+=9;
         drawPacman();
         pacman.style.transform = "rotate(180deg)";
     }
 
-    if (d === "ArrowRight" && i%10!==0) {
+    if (d === "ArrowRight" || d ==="d" && i%10!==0) {
         i++;
         drawPacman();
         pacman.style.transform = "rotate(0deg)";
-    }else if (d === "ArrowRight" && i%10===0) {
+    }else if (d === "ArrowRight" || d ==="d" && i%10===0) {
         i-=9;
         drawPacman();
         pacman.style.transform = "rotate(0deg)";
