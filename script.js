@@ -5,6 +5,7 @@ let k = [100];
 let points = 0;
 let speed = 250;
 let ghostnumber = 1;
+const keys = ['w', 'a', 's', 'd', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
 function mapCreation() {
     drawPacman();
@@ -49,7 +50,9 @@ function drawFruit() {
 }
 
 document.addEventListener("keydown", function (e){
-    d = e.key;
+    if (keys.includes(e.key)) {
+        d = e.key;
+    }
 });
 
 function movement() {
