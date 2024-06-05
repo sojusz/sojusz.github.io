@@ -3,7 +3,7 @@ let d = "ArrowRight"
 let i = 1;
 let k = [100];
 let points = 0;
-let speed = 200;
+let speed = 250;
 let ghostnumber = 1;
 
 function mapCreation() {
@@ -108,7 +108,7 @@ function movement() {
             addGhost()
         }
 
-        if (speed>100) {
+        if (speed>200) {
             speed-=2;
         }else {
             speed--;
