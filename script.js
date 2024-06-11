@@ -146,7 +146,7 @@ function updateDisplay() {
 }
 
 function movePlayer() {
-    let movesQuantity = 6;
+    let movesQuantity = Math.floor(Math.random() * 6) + 1;
     //Math.floor(Math.random() * 6) + 1;
     document.querySelector("#dice").disabled = true;
     let player = players[currentPlayerIndex];
