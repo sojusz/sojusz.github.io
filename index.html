@@ -163,7 +163,7 @@
         const userInputPartizip = document.getElementById("answerPartizip").value.trim();
         let feedback = "";
 
-        if (userInputDe === currentWord.de && userInputPartizip === currentWord.particip) {
+        if (userInputDe.toLowerCase() === currentWord.de && userInputPartizip.toLowerCase() === currentWord.particip) {
             correctCount[currentWord.pl] = (correctCount[currentWord.pl] || 0) + 1;
             if (correctCount[currentWord.pl] >= 2) {
                 words.splice(words.indexOf(currentWord), 1);
