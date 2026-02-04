@@ -23,7 +23,7 @@
 
 <script>
     function send(value) {
-        fetch("https://walentynki.wojteks200703.workers.dev/send", {
+        fetch("https://walentynki.wojteks200703.workers.dev/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ button: value })
@@ -33,3 +33,4 @@
 </body>
 
 </html>
+
