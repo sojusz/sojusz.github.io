@@ -27,22 +27,14 @@
     </div>
 
 <script>
-    let guziknie = document.getElementById("nie");
-    let guzitak = document.getElementById("tak");
     function send(value) {
         fetch("https://twoj-worker.workers.dev/send", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ button: value })
         });
-
-        if(value == "Nie") {
-            guziknie.style.display = "flex";
-        }
-        else {
-            guzitak.style.display = "flex";
-        }
     }
 </script>
 </body>
 </html>
+
