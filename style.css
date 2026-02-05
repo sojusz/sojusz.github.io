@@ -46,3 +46,19 @@ button:hover .button_top {
 button:active .button_top {
   transform: translateY(0);
 }
+
+#nie, #tak{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9;
+    color: white;
+}
