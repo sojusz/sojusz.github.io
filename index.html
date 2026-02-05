@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="nie">To sie pierdol</div>
+    <div id="tak">Super :*</div>
     <div id="centering">
         <div id="zdjecia">
             <img src="pies2.jpg" alt="pies" style="margin-left: 25vw;">
@@ -25,15 +27,23 @@
     </div>
 
 <script>
+    const guziknie = document.getElementById("nie");
+    const guzitak = document.getElementById("tak");
+
     function send(value) {
         fetch("https://walentynki.wojteks200703.workers.dev/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ button: value })
         });
+
+        if(value == "Nie") {
+            guziknie.style.display = "flex";
+        }
+        else {
+            guzitak.style.display = "flex";
+        }
     }
 </script>
 </body>
-
 </html>
-
