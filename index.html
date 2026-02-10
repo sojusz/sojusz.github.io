@@ -1,49 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Zdrowe cipki</title>
 </head>
 <body>
-    <div id="nie">To sie pierdol</div>
-    <div id="tak">Super :*</div>
-    <div id="centering">
-        <div id="zdjecia">
-            <img src="pies2.jpg" alt="pies" style="margin-left: 25vw;">
-        </div>
-        <div id="pytanie">Czy zostaniesz moja walentynka?</div>
-        <div>
-            <!-- From Uiverse.io by Voxybuns --> 
-            <button onclick="send('Tak')" style="margin-right: 5vw;">
-                <span class="button_top"> Tak </span>
-            </button>
+<header>
+    <h1>Schröder - Smaki Naturalne</h1>
+    <p>Chipsy, które powstają z prawdziwych składników!</p>
+</header>
 
-            <button onclick="send('Nie')">
-                <span class="button_top"> Nie </span>
-            </button>
-        </div>
-    </div>
+<div class="products-grid">
+    <article class="product-card">
+        <img src="paprica.png" alt="Paprykowe Chipsy" class="product-image">
+        <h2 class="product-title">Paprykowe Chipsy</h2>
+        <p class="product-description"> Przenieś swoje kubki smakowe na wyżyny intensywności!
+            Chrupiące chipsy ziemniaczane wzbogacone naturalnym dodatkiem słodkiej i
+            lekko pikantnej papryki. Idealne dla tych, którzy cenią sobie wyrazisty,
+            ale harmonijny smak. Bez sztucznych aromatów – tylko prawdziwa paprykowa magia prosto z natury!
+        </p>
+    </article>
 
-<script>
-    const guziknie = document.getElementById("nie");
-    const guzitak = document.getElementById("tak");
+    <article class="product-card">
+        <img src="cebula.png" alt="Cebulowe Chipsy" class="product-image">
+        <h2 class="product-title">Cebulowe Chipsy</h2>
+        <p class="product-description"> Delikatne, ale pełne charakteru! Chrupiące chipsy ziemniaczane z
+            naturalnym dodatkiem aromatycznej cebuli, która nadaje im głęboki smak z wyraźnym akcentem świeżości.
+            Doskonałe jako samodzielna przekąska lub dodatek do ulubionych dipów. Smaczne i bez kompromisów – prosto z natury!
+        </p>
+    </article>
 
-    function send(value) {
-        fetch("https://walentynki.wojteks200703.workers.dev/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ button: value })
-        });
+    <article class="product-card">
+        <img src="pomidor.png" alt="Ziołowe Chipsy" class="product-image">
+        <h2 class="product-title">Pomidorowe Chipsy z serem</h2>
+        <p class="product-description"> Prawdziwa uczta dla miłośników intensywnych smaków!
+            Te chrupiące chipsy łączą w sobie soczystość dojrzałych pomidorów i aksamitną nutę aromatycznego sera.
+            Idealne na każdą okazję – od przekąski podczas seansów filmowych po szybki zastrzyk smaku w ciągu dnia.
+            Naturalne składniki gwarantują autentyczność każdego kęsa. Bez sztucznych dodatków, tylko czysta przyjemność!
+        </p>
+    </article>
 
-        if(value == "Nie") {
-            guziknie.style.display = "flex";
-        }
-        else {
-            guzitak.style.display = "flex";
-        }
-    }
-</script>
+    <article class="product-card">
+        <img src="pomidorbezser.png" alt="Chipsy z Chilli" class="product-image">
+        <h2 class="product-title">Pomidorowe Chipsy bez sera</h2>
+        <p class="product-description"> Minimalizm w najlepszym wydaniu!
+            Chrupiące ziemniaczane chipsy o intensywnym smaku dojrzałych pomidorów.
+            Naturalnie proste, bez dodatku sera, aby wydobyć pełnię smaku pomidorów.
+            Świetna propozycja dla osób szukających lekkiej, a jednocześnie pełnej aromatu przekąski.
+            Ciesz się zdrową alternatywą klasycznych chipsów!
+        </p>
+    </article>
+</div>
 </body>
 </html>
