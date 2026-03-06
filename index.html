@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Rekcja czasowników</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+gap:40px;
+}
+
+.card{
+background:#1e293b;
+padding:40px;
+border-radius:10px;
+text-align:center;
+width:420px;
+}
+
+.history{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+width:250px;
+min-height:150px;
+}
+
+input{
+padding:10px;
+font-size:16px;
+width:220px;
+}
+
+button{
+padding:10px 15px;
+margin:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+.good{color:#22c55e}
+.bad{color:#ef4444}
+
+.small{
+font-size:14px;
+opacity:0.8;
+}
+
+.keyboard{
+margin-top:10px;
+}
+
+.keyboard button{
+padding:6px 10px;
+font-size:16px;
+margin:2px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2 id="question"></h2>
+
+<input id="answer" placeholder="niemiecki">
+
+<div class="keyboard">
+<button onclick="addLetter('ä')">ä</button>
+<button onclick="addLetter('ö')">ö</button>
+<button onclick="addLetter('ü')">ü</button>
+<button onclick="addLetter('ß')">ß</button>
+</div>
+
+<br><br>
+
+<button onclick="check('Akkusativ')">Akkusativ</button>
+<button onclick="check('Dativ')">Dativ</button>
+
+<p id="result"></p>
+
+<p>Pozostało: <span id="left"></span></p>
+
+</div>
+
+<div class="history">
+<h3>Poprzednie</h3>
+<div id="historyBox" class="small">brak</div>
+</div>
+
+<script>
+
+const vocab = [
+
+{ de:"arbeiten an", pl:"pracować nad", prep:"an", case:"Dativ" },
+{ de:"denken an", pl:"myśleć o", prep:"an", case:"Akkusativ" },
+{ de:"sich erinnern an", pl:"wspominać coś / przypominać sobie o", prep:"an", case:"Akkusativ" },
+{ de:"erkennen an", pl:"rozpoznać po", prep:"an", case:"Dativ" },
+{ de:"glauben an", pl:"wierzyć w", prep:"an", case:"Akkusativ" },
+{ de:"sich gewöhnen an", pl:"przyzwyczajać się do", prep:"an", case:"Akkusativ" },
+{ de:"teilnehmen an", pl:"brać udział w / uczestniczyć w", prep:"an", case:"Dativ" },
+{ de:"schreiben an", pl:"pisać do", prep:"an", case:"Akkusativ" },
+
+{ de:"achten auf", pl:"uważać na", prep:"auf", case:"Akkusativ" },
+{ de:"antworten auf", pl:"odpowiadać na", prep:"auf", case:"Akkusativ" },
+{ de:"sich beziehen auf", pl:"odnosić się do", prep:"auf", case:"Akkusativ" },
+{ de:"sich freuen auf", pl:"cieszyć się na", prep:"auf", case:"Akkusativ" },
+{ de:"hoffen auf", pl:"mieć nadzieję na", prep:"auf", case:"Akkusativ" },
+{ de:"verzichten auf", pl:"zrezygnować z", prep:"auf", case:"Akkusativ" },
+{ de:"warten auf", pl:"czekać na", prep:"auf", case:"Akkusativ" },
+{ de:"sich vorbereiten auf", pl:"przygotować się na", prep:"auf", case:"Akkusativ" },
+
+{ de:"helfen bei", pl:"pomagać w", prep:"bei", case:"Dativ" },
+
+{ de:"aufhören mit", pl:"zerwać z / skończyć z", prep:"mit", case:"Dativ" },
+{ de:"sich beschäftigen mit", pl:"zajmować się czymś", prep:"mit", case:"Dativ" },
+{ de:"telefonieren mit", pl:"rozmawiać przez telefon z", prep:"mit", case:"Dativ" },
+{ de:"umgehen mit", pl:"obchodzić się z", prep:"mit", case:"Dativ" },
+
+{ de:"fragen nach", pl:"pytać o", prep:"nach", case:"Dativ" },
+{ de:"greifen nach", pl:"sięgać po", prep:"nach", case:"Dativ" },
+{ de:"suchen nach", pl:"poszukiwać czegoś / kogoś", prep:"nach", case:"Dativ" },
+
+{ de:"abholen von", pl:"odebrać z", prep:"von", case:"Dativ" },
+{ de:"erfahren von", pl:"dowiedzieć się o", prep:"von", case:"Dativ" },
+{ de:"erwarten von", pl:"oczekiwać od", prep:"von", case:"Dativ" },
+{ de:"sich erholen von", pl:"odpocząć od", prep:"von", case:"Dativ" },
+{ de:"erzählen von", pl:"opowiadać o", prep:"von", case:"Dativ" },
+{ de:"träumen von", pl:"marzyć o", prep:"von", case:"Dativ" },
+{ de:"überzeugen von", pl:"przekonać o", prep:"von", case:"Dativ" },
+
+{ de:"Angst haben vor", pl:"bać się czegoś", prep:"vor", case:"Dativ" },
+{ de:"schützen vor", pl:"chronić przed", prep:"vor", case:"Dativ" },
+
+{ de:"gratulieren zu", pl:"gratulować z okazji", prep:"zu", case:"Dativ" },
+{ de:"einladen zu", pl:"zapraszać na", prep:"zu", case:"Dativ" },
+{ de:"führen zu", pl:"prowadzić do", prep:"zu", case:"Dativ" },
+{ de:"gehören zu", pl:"należeć do", prep:"zu", case:"Dativ" },
+{ de:"passen zu", pl:"pasować do", prep:"zu", case:"Dativ" },
+
+{ de:"danken für", pl:"dziękować za", prep:"für", case:"Akkusativ" },
+{ de:"sich entscheiden für", pl:"zdecydować się na", prep:"für", case:"Akkusativ" },
+{ de:"zahlen für", pl:"płacić za", prep:"für", case:"Akkusativ" },
+{ de:"sich interessieren für", pl:"interesować się czymś", prep:"für", case:"Akkusativ" },
+{ de:"sein für", pl:"być za", prep:"für", case:"Akkusativ" },
+{ de:"sorgen für", pl:"dbać o / troszczyć się o", prep:"für", case:"Akkusativ" },
+
+{ de:"protestieren gegen", pl:"protestować przeciw", prep:"gegen", case:"Akkusativ" },
+
+{ de:"geraten in", pl:"popaść w", prep:"in", case:"Akkusativ" },
+{ de:"sich verlieben in", pl:"zakochać się w", prep:"in", case:"Akkusativ" },
+{ de:"sich vertiefen in", pl:"zagłębić się w", prep:"in", case:"Akkusativ" },
+
+{ de:"sich ärgern über", pl:"złościć się z powodu / na coś", prep:"über", case:"Akkusativ" },
+{ de:"berichten über", pl:"relacjonować coś", prep:"über", case:"Akkusativ" },
+{ de:"diskutieren über", pl:"dyskutować o", prep:"über", case:"Akkusativ" },
+{ de:"sich freuen über", pl:"cieszyć się z", prep:"über", case:"Akkusativ" },
+{ de:"informieren über", pl:"informować o", prep:"über", case:"Akkusativ" },
+{ de:"lachen über", pl:"śmiać się z", prep:"über", case:"Akkusativ" },
+{ de:"sprechen über", pl:"rozmawiać o", prep:"über", case:"Akkusativ" },
+{ de:"verfügen über", pl:"dysponować czymś", prep:"über", case:"Akkusativ" },
+{ de:"sich streiten über", pl:"kłócić się z powodu", prep:"über", case:"Akkusativ" },
+
+{ de:"sich bewerben um", pl:"ubiegać się o", prep:"um", case:"Akkusativ" },
+{ de:"bitten um", pl:"prosić o", prep:"um", case:"Akkusativ" },
+{ de:"es geht um", pl:"chodzi o", prep:"um", case:"Akkusativ" },
+{ de:"kämpfen um", pl:"walczyć o", prep:"um", case:"Akkusativ" },
+{ de:"sich kümmern um", pl:"troszczyć się o", prep:"um", case:"Akkusativ" }
+
+];
+
+vocab.forEach(v => {
+  if (typeof v.cooldown !== 'number' || v.cooldown < 0) {
+    v.cooldown = 0;
+  }
+  if (typeof v.good !== 'number' || v.good < 0) {
+    v.good = 0;
+  }
+});
+
+let current;
+
+function addLetter(letter){
+
+let input = document.getElementById("answer")
+
+let start = input.selectionStart
+let end = input.selectionEnd
+
+input.value =
+input.value.substring(0,start) +
+letter +
+input.value.substring(end)
+
+input.focus()
+
+input.selectionStart = input.selectionEnd = start + 1
+}
+
+function next(){
+
+  vocab.forEach(v => {
+    if (v.cooldown > 0) {
+      v.cooldown--;
+    }
+    if (v.cooldown < 0) {
+      v.cooldown = 0;
+    }
+  });
+
+  let available = vocab.filter(v => v.cooldown === 0);
+  if (available.length === 0) {
+    available = vocab;
+  }
+
+  current = available[Math.floor(Math.random() * available.length)];
+
+  current.cooldown = 3;
+
+  document.getElementById("question").innerText = current.pl
+document.getElementById("left").innerText=vocab.length
+document.getElementById("answer").value=""
+document.getElementById("result").innerText=""
+
+}
+
+function normalize(t){
+return t.toLowerCase().trim()
+}
+
+function check(selectedCase){
+
+let ans = normalize(document.getElementById("answer").value)
+let correct = normalize(current.de)
+
+let history = document.getElementById("historyBox")
+
+if(ans === correct && selectedCase === current.case){
+
+current.good++
+
+document.getElementById("result").innerHTML="<span class='good'>dobrze</span>"
+
+history.innerHTML = `
+<b>${current.pl}</b><br>
+${current.de}<br>
+${current.case}
+`
+
+if(current.good>=2){
+let i=vocab.indexOf(current)
+vocab.splice(i,1)
+}
+
+}else{
+
+current.good=0
+
+document.getElementById("result").innerHTML="<span class='bad'>źle</span>"
+
+history.innerHTML = `
+<b>${current.pl}</b><br>
+${current.de}<br>
+${current.case}
+`
+
+}
+
+setTimeout(next,900)
+
+}
+
+next()
+
+</script>
+
+</body>
+</html>
